@@ -1,0 +1,35 @@
+# VentureROM Web Interfaces
+
+## api
+
+The API is used to access on the go info using the Venture application on your phone or 
+through other mediums that can utilize JSON. The following calls are available:
+
+	/notices		This shows the current notices pushed by the developers to the 
+				OTA application. These can be warnings about recent builds or just 
+				notices in gernal containing instructions about instructions needed on new builds.
+	/updates/<device>	Get JSON return about current zippables for <device>. This returns file, version,
+				filesize, and md5sum for each .zip in <device>'s folder.
+
+
+## dev
+
+This is the interface used for doing various developement related tasks.
+
+### Notices
+
+This can be used to push delete notices for the `notices` API for the OTA app.
+
+### Builds
+
+This can be used to view all the builds currently hosted on the server. Future functions include deleting builds
+and uploading them straight from this page.
+
+## www
+
+This is VentureROM's main website. This is the landing page for all Venture things.
+
+## Credits and Contact
+
+Most of these interfaces utilize the Bootstrap CSS/JS framework and the Material Design Bootstrap theme.
+All of thise was created by KittyKatt (Brett Bohnenkamper) using the above tools.
