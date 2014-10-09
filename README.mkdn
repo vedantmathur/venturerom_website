@@ -22,7 +22,7 @@ This can be used to push delete notices for the `notices` API for the OTA app.
 
 ### Builds
 
-This can be used to view all the builds currently hosted on the server. Future functions include deleting builds
+This can be used to view all the builds currently hosted on the server. You can also delete and upload builds here.
 and uploading them straight from this page.
 
 ## www
