@@ -280,7 +280,8 @@
 								echo "			<div class='least-content'>" . $filesize . "</div>";
 								echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 								echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-								echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
+								echo "			<button class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete' data-mydevice='" . $device . "' data-myfile='" . $filename . "'></button>";
+								// echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 								echo "		</div>";
 								echo "	</div>";
 								echo "<div class='list-group-separator'></div>";
@@ -317,6 +318,19 @@
 
 	<script type="text/javascript" src="/js/pekeUpload.js"></script>
 	<script type="text/javascript" src="/js/zipUpload.js"></script>
+	<script type="text/javascript" src="/js/bootbox.min.js"></script>
+	<script type="text/javascript">
+		$(document).on("click", ".btn-delete", function(e) {
+			var $this = $(this),
+				device = $this.data('mydevice'),
+				file = $this.data('myfile');
+			bootbox.confirm("Are you sure?", function(result) {
+				if (result === true) {
+					window.location.replace("http://dev.venturerom.com/index.php?action=delete&device="+device+"&file="+file);
+				}
+			});
+		});
+	</script>
 	<script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
