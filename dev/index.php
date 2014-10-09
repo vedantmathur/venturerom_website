@@ -26,6 +26,7 @@
 			$dateErr = "You must supply a valid date.";
 		} else {
 			$mydate = test_input($_POST['date']);
+			$mydate = preg_replace('#\D#', '', $mydate);
 		}
 	}
 	if (isset($_POST["notice"])) {
@@ -72,7 +73,7 @@
 	<link href="/css/bootstrap-material-design/css-compiled/ripples.min.css" rel="stylesheet" type="text/css">
 	<link href="/css/bootstrap-material-design/css-compiled/material-wfont.css" rel="stylesheet" type="text/css">
 	<link href="/css/venture.css" rel="stylesheet" type="text/css">
-	<link href="/css/custom.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/bootstrapValidator.min.css"/>
 
 	<!-- Custom Fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -93,6 +94,15 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-55271818-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -169,13 +179,14 @@
 
 						<div id="snackbar"></div>
 
-						<form class="form-vertical text-left" method="post" action="/index.php">
+						<form id="new-notice" class="form-vertical text-left" method="post" action="/index.php">
 							<fieldset>
 								<legend>New Notice</legend>
 								<div class="form-group">
 									<label for="inputdate" class="col-lg-2 control-label">Date</label>
 									<div class="col-lg-10">
-										<input class="form-control" id="inputdate" name="date" placeholder="YYYYMMDD" type="date">
+										<input class="form-control" id="inputdate" name="date">
+										<span class="help-block">Date format: YYYY/MM/DD</span>
 									</div>
 								</div>
 								<div class="form-group">
@@ -306,14 +317,28 @@
 
 	<script type="text/javascript" src="/js/pekeUpload.js"></script>
 	<script type="text/javascript" src="/js/zipUpload.js"></script>
-
-	<?php
-		if(isset($dateErr)) {
-			echo "<script>";
-			echo "document.getElementById('snackbar').innerHTML = '<p class=\"inner\">You must supply a valid date.</p>';";
-			echo "</script>";
-		}
-	?>
+	<script type="text/javascript" src="/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#new-notice').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					date: {
+						validators: {
+							date: {
+								format: 'YYYY/MM/DD',
+								message: 'The value is not a valid date.'
+							}
+						}
+					}
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>
