@@ -2,7 +2,7 @@
 	// user has clicked a delete hyperlink
 	$notice_priority_rm = $notice_date_rm = $notice_notice_rm = '';
 	if(isset($_GET['action'])) {
-		if($_GET['action'] == "delete") {
+		if($_GET['action'] == "rmnotice") {
 			$notice_priority_rm = $_GET['index'];
 			$notice_date_rm = $notice_priority_rm + 1;
 			$notice_notice_rm = $notice_priority_rm + 2;
@@ -13,6 +13,11 @@
 			unset($arr[$notice_notice_rm]);
 			$arr = array_values($arr);
 			file_put_contents($f,$arr);
+		} elseif($_GET['action'] == "delete") {
+			$zip_device = $_GET['device'];
+			$zip_filename = $_GET['file'];
+			$zipTarget = '/srv/http/venturerom.com/get.venturerom.com/' . $zip_device . '/' . $zip_filename;
+			unlink($zipTarget);
 		}
 	}
 
@@ -67,6 +72,7 @@
 	<link href="/css/bootstrap-material-design/css-compiled/ripples.min.css" rel="stylesheet" type="text/css">
 	<link href="/css/bootstrap-material-design/css-compiled/material-wfont.css" rel="stylesheet" type="text/css">
 	<link href="/css/venture.css" rel="stylesheet" type="text/css">
+	<link href="/css/custom.css" rel="stylesheet" type="text/css">
 
 	<!-- Custom Fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -132,7 +138,6 @@
 				<li class="active"><a href="#notices" data-toggle="tab">Notices</a></li>
 				<li><a href="#builds" data-toggle="tab">Builds</a></li>
 				<li class="disabled"><a>Disabled</a></li>
-				<div id="uploader_div"></div>
 			</ul>
 			<section class="content col-sm-offset-3">
 				<div id="myTabContent" class="tab-content">
@@ -150,7 +155,7 @@
 									$notice_date = preg_replace('/date : /', '', trim(preg_replace('/\s\s+/', ' ', array_shift($lines))));
 									$notice_data = preg_replace('/notice : /', '', trim(preg_replace('/\s\s+/', ' ', array_shift($lines))));
 									echo "<div class='alert alert-dismissable notice priority-" . $notice_priority . "'>";
-									echo "	<a href='/index.php?action=delete&index=" . $i . "'><button type='button' class='close'>×</button></a>";
+									echo "	<a href='/index.php?action=rmnotice&index=" . $i . "'><button type='button' class='close'>×</button></a>";
 									echo "	<h4>" . $notice_date . "</h4>";
 									echo "	<p>" . $notice_data . "</p>";
 									echo "</div>";
@@ -233,12 +238,13 @@
 						}
 
 						$device = "bacon";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device . "/";
+						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 						$webRoot = "http://get.venturerom.com/" . $device;
 						$json_array = array();
 						echo "<div class='panel panel-primary panel-files'>";
 						echo "	<div class='panel-heading'>";
 						echo "		<h3 class='panel-title'>" . $device . "</h3>";
+						echo "		<input id=\"bacon-file\" type=\"file\" name=\"file\" />";
 						echo "	</div>";
 						echo "	<div class='panel-body'>";
 						// Open a known directory, and proceed to read its contents
@@ -263,22 +269,24 @@
 							echo "			<div class='least-content'>" . $filesize . "</div>";
 							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 							echo "		</div>";
 							echo "</div>";
 							echo "<div class='list-group-separator'></div>";
+							echo "</div>";
 
 						}
-						echo "	</div>";
 						echo "</div>";
 						echo "</div>";
 
 						$device = "flo";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device . "/";
+						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 						$webRoot = "http://get.venturerom.com/" . $device;
 						$json_array = array();
 						echo "<div class='panel panel-primary panel-files'>";
 						echo "	<div class='panel-heading'>";
 						echo "		<h3 class='panel-title'>" . $device . "</h3>";
+						echo "		<input id=\"flo-file\" type=\"file\" name=\"file\" />";
 						echo "	</div>";
 						echo "	<div class='panel-body'>";
 						// Open a known directory, and proceed to read its contents
@@ -303,22 +311,24 @@
 							echo "			<div class='least-content'>" . $filesize . "</div>";
 							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 							echo "		</div>";
 							echo "</div>";
 							echo "<div class='list-group-separator'></div>";
+							echo "</div>";
 
 						}
-						echo "	</div>";
 						echo "</div>";
 						echo "</div>";
 
 						$device = "hammerhead";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device . "/";
+						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 						$webRoot = "http://get.venturerom.com/" . $device;
 						$json_array = array();
 						echo "<div class='panel panel-primary panel-files'>";
 						echo "	<div class='panel-heading'>";
 						echo "		<h3 class='panel-title'>" . $device . "</h3>";
+						echo "		<input id=\"hammerhead-file\" type=\"file\" name=\"file\" />";
 						echo "	</div>";
 						echo "	<div class='panel-body'>";
 						// Open a known directory, and proceed to read its contents
@@ -343,23 +353,24 @@
 							echo "			<div class='least-content'>" . $filesize . "</div>";
 							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 							echo "		</div>";
 							echo "</div>";
 							echo "<div class='list-group-separator'></div>";
+							echo "</div>";
 
 						}
-						echo "	</div>";
-						echo "</div>";
 						echo "</div>";
 						echo "</div>";
 
 						$device = "m8";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device . "/";
+						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 						$webRoot = "http://get.venturerom.com/" . $device;
 						$json_array = array();
 						echo "<div class='panel panel-primary panel-files'>";
 						echo "	<div class='panel-heading'>";
 						echo "		<h3 class='panel-title'>" . $device . "</h3>";
+						echo "		<input id=\"m8-file\" type=\"file\" name=\"file\" />";
 						echo "	</div>";
 						echo "	<div class='panel-body'>";
 						// Open a known directory, and proceed to read its contents
@@ -385,22 +396,24 @@
 							echo "			<div class='least-content'>" . $filesize . "</div>";
 							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 							echo "		</div>";
 							echo "</div>";
 							echo "<div class='list-group-separator'></div>";
+							echo "</div>";
 
 						}
-						echo "	</div>";
 						echo "</div>";
 						echo "</div>";
 
 						$device = "mako";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device . "/";
+						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 						$webRoot = "http://get.venturerom.com/" . $device;
 						$json_array = array();
 						echo "<div class='panel panel-primary panel-files'>";
 						echo "	<div class='panel-heading'>";
 						echo "		<h3 class='panel-title'>" . $device . "</h3>";
+						echo "		<input id=\"mako-file\" type=\"file\" name=\"file\" />";
 						echo "	</div>";
 						echo "	<div class='panel-body'>";
 						// Open a known directory, and proceed to read its contents
@@ -425,12 +438,13 @@
 							echo "			<div class='least-content'>" . $filesize . "</div>";
 							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
 							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 							echo "		</div>";
 							echo "</div>";
 							echo "<div class='list-group-separator'></div>";
+							echo "</div>";
 
 						}
-						echo "	</div>";
 						echo "</div>";
 						echo "</div>";
 					?>
@@ -458,6 +472,41 @@
 
 	<script src="/css/bootstrap-material-design/scripts/ripples.js"></script>
 	<script src="/css/bootstrap-material-design/scripts/material.js"></script>
+
+	<script type="text/javascript" src="/js/pekeUpload.js"></script>
+
+	<script>
+		$("#bacon-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'bacon',
+			btnText: '',
+			multi: false
+		});
+		$("#flo-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'flo',
+			btnText: '',
+			multi: false
+		});
+		$("#hammerhead-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'hammerhead',
+			btnText: '',
+			multi: false
+		});
+		$("#m8-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'm8',
+			btnText: '',
+			multi: false
+		});
+		$("#mako-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'mako',
+			btnText: '',
+			multi: false
+		});
+	</script>
 
 	<?php
 		if(isset($dateErr)) {
