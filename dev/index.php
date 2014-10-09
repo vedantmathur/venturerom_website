@@ -237,216 +237,48 @@
 							return $bytes;
 						}
 
-						$device = "bacon";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
-						$webRoot = "http://get.venturerom.com/" . $device;
-						$json_array = array();
-						echo "<div class='panel panel-primary panel-files'>";
-						echo "	<div class='panel-heading'>";
-						echo "		<h3 class='panel-title'>" . $device . "</h3>";
-						echo "		<input id=\"bacon-file\" type=\"file\" name=\"file\" />";
-						echo "	</div>";
-						echo "	<div class='panel-body'>";
-						// Open a known directory, and proceed to read its contents
-						foreach (glob("$devicedir/*.zip") as $file) {
-							$filename = basename($file);
+						$deviceArray = array('bacon', 'flo', 'hammerhead', 'm8', 'mako');
+						foreach ($deviceArray as &$device) {
+							$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
+							$webRoot = "http://get.venturerom.com/" . $device;
+							echo "<div class='panel panel-primary panel-files'>";
+							echo "	<div class='panel-heading'>";
+							echo "		<h3 class='panel-title'>" . $device . "</h3>";
+							echo "		<input id='" . $device . "-file' type='file' name='file' />";
+							echo "	</div>";
+							echo "	<div class='panel-body'>";
+							// Open a known directory, and proceed to read its contents
+							foreach (glob("$devicedir/*.zip") as $file) {
+								$filename = basename($file);
 
-							$fileversion = preg_replace('#\D#', '', $filename);
+								$fileversion = preg_replace('#\D#', '', $filename);
 
-							$filesize = formatSizeUnits(filesize($file));
+								$filesize = formatSizeUnits(filesize($file));
 
-							$turl = $webRoot. "/" . $filename;
-							$url = str_replace('\/', "/", $turl);
+								$turl = $webRoot. "/" . $filename;
+								$url = str_replace('\/', "/", $turl);
 
-							$filesum = md5_file($file);
+								$filesum = md5_file($file);
 
-							echo "<div class='list-group'>";
-							echo "	<div class='list-group-item'>";
-							echo "		<div class='row-action-primary'>";
-							echo "			<i class='icon-material-folder'></i>";
-							echo "		</div>";
-							echo "		<div class='row-content'>";
-							echo "			<div class='least-content'>" . $filesize . "</div>";
-							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
-							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
-							echo "		</div>";
+								echo "<div class='list-group'>";
+								echo "	<div class='list-group-item'>";
+								echo "		<div class='row-action-primary'>";
+								echo "			<i class='icon-material-folder'></i>";
+								echo "		</div>";
+								echo "		<div class='row-content'>";
+								echo "			<div class='least-content'>" . $filesize . "</div>";
+								echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
+								echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
+								echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
+								echo "		</div>";
+								echo "</div>";
+								echo "<div class='list-group-separator'></div>";
+								echo "</div>";
+
+							}
 							echo "</div>";
-							echo "<div class='list-group-separator'></div>";
 							echo "</div>";
-
 						}
-						echo "</div>";
-						echo "</div>";
-
-						$device = "flo";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
-						$webRoot = "http://get.venturerom.com/" . $device;
-						$json_array = array();
-						echo "<div class='panel panel-primary panel-files'>";
-						echo "	<div class='panel-heading'>";
-						echo "		<h3 class='panel-title'>" . $device . "</h3>";
-						echo "		<input id=\"flo-file\" type=\"file\" name=\"file\" />";
-						echo "	</div>";
-						echo "	<div class='panel-body'>";
-						// Open a known directory, and proceed to read its contents
-						foreach (glob("$devicedir/*.zip") as $file) {
-							$filename = basename($file);
-
-							$fileversion = preg_replace('#\D#', '', $filename);
-
-							$filesize = formatSizeUnits(filesize($file));
-
-							$turl = $webRoot. "/" . $filename;
-							$url = str_replace('\/', "/", $turl);
-
-							$filesum = md5_file($file);
-
-							echo "<div class='list-group'>";
-							echo "	<div class='list-group-item'>";
-							echo "		<div class='row-action-primary'>";
-							echo "			<i class='icon-material-folder'></i>";
-							echo "		</div>";
-							echo "		<div class='row-content'>";
-							echo "			<div class='least-content'>" . $filesize . "</div>";
-							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
-							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
-							echo "		</div>";
-							echo "</div>";
-							echo "<div class='list-group-separator'></div>";
-							echo "</div>";
-
-						}
-						echo "</div>";
-						echo "</div>";
-
-						$device = "hammerhead";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
-						$webRoot = "http://get.venturerom.com/" . $device;
-						$json_array = array();
-						echo "<div class='panel panel-primary panel-files'>";
-						echo "	<div class='panel-heading'>";
-						echo "		<h3 class='panel-title'>" . $device . "</h3>";
-						echo "		<input id=\"hammerhead-file\" type=\"file\" name=\"file\" />";
-						echo "	</div>";
-						echo "	<div class='panel-body'>";
-						// Open a known directory, and proceed to read its contents
-						foreach (glob("$devicedir/*.zip") as $file) {
-							$filename = basename($file);
-
-							$fileversion = preg_replace('#\D#', '', $filename);
-
-							$filesize = formatSizeUnits(filesize($file));
-
-							$turl = $webRoot. "/" . $filename;
-							$url = str_replace('\/', "/", $turl);
-
-							$filesum = md5_file($file);
-
-							echo "<div class='list-group'>";
-							echo "	<div class='list-group-item'>";
-							echo "		<div class='row-action-primary'>";
-							echo "			<i class='icon-material-folder'></i>";
-							echo "		</div>";
-							echo "		<div class='row-content'>";
-							echo "			<div class='least-content'>" . $filesize . "</div>";
-							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
-							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
-							echo "		</div>";
-							echo "</div>";
-							echo "<div class='list-group-separator'></div>";
-							echo "</div>";
-
-						}
-						echo "</div>";
-						echo "</div>";
-
-						$device = "m8";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
-						$webRoot = "http://get.venturerom.com/" . $device;
-						$json_array = array();
-						echo "<div class='panel panel-primary panel-files'>";
-						echo "	<div class='panel-heading'>";
-						echo "		<h3 class='panel-title'>" . $device . "</h3>";
-						echo "		<input id=\"m8-file\" type=\"file\" name=\"file\" />";
-						echo "	</div>";
-						echo "	<div class='panel-body'>";
-						// Open a known directory, and proceed to read its contents
-						foreach (glob("$devicedir/*.zip") as $file) {
-							$filename = basename($file);
-
-							$filesubversion = preg_replace('/m8/', '', $filename);
-							$fileversion = preg_replace('#\D#', '', $filesubversion);
-
-							$filesize = formatSizeUnits(filesize($file));
-
-							$turl = $webRoot. "/" . $filename;
-							$url = str_replace('\/', "/", $turl);
-
-							$filesum = md5_file($file);
-
-							echo "<div class='list-group'>";
-							echo "	<div class='list-group-item'>";
-							echo "		<div class='row-action-primary'>";
-							echo "			<i class='icon-material-folder'></i>";
-							echo "		</div>";
-							echo "		<div class='row-content'>";
-							echo "			<div class='least-content'>" . $filesize . "</div>";
-							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
-							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
-							echo "		</div>";
-							echo "</div>";
-							echo "<div class='list-group-separator'></div>";
-							echo "</div>";
-
-						}
-						echo "</div>";
-						echo "</div>";
-
-						$device = "mako";
-						$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
-						$webRoot = "http://get.venturerom.com/" . $device;
-						$json_array = array();
-						echo "<div class='panel panel-primary panel-files'>";
-						echo "	<div class='panel-heading'>";
-						echo "		<h3 class='panel-title'>" . $device . "</h3>";
-						echo "		<input id=\"mako-file\" type=\"file\" name=\"file\" />";
-						echo "	</div>";
-						echo "	<div class='panel-body'>";
-						// Open a known directory, and proceed to read its contents
-						foreach (glob("$devicedir/*.zip") as $file) {
-							$filename = basename($file);
-
-							$fileversion = preg_replace('#\D#', '', $filename);
-
-							$filesize = formatSizeUnits(filesize($file));
-
-							$turl = $webRoot. "/" . $filename;
-							$url = str_replace('\/', "/", $turl);
-
-							$filesum = md5_file($file);
-
-							echo "<div class='list-group'>";
-							echo "	<div class='list-group-item'>";
-							echo "		<div class='row-action-primary'>";
-							echo "			<i class='icon-material-folder'></i>";
-							echo "		</div>";
-							echo "		<div class='row-content'>";
-							echo "			<div class='least-content'>" . $filesize . "</div>";
-							echo "			<h4 class='list-group-item-heading'>" . $fileversion . "</h4>";
-							echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
-							echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
-							echo "		</div>";
-							echo "</div>";
-							echo "<div class='list-group-separator'></div>";
-							echo "</div>";
-
-						}
-						echo "</div>";
-						echo "</div>";
 					?>
 					</div>
 					<div class="tab-pane fade" id="dropdown1">
