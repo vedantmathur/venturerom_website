@@ -474,39 +474,7 @@
 	<script src="/css/bootstrap-material-design/scripts/material.js"></script>
 
 	<script type="text/javascript" src="/js/pekeUpload.js"></script>
-
-	<script>
-		$("#bacon-file").pekeUpload({
-			theme:'bootstrap',
-			data: 'bacon',
-			btnText: '',
-			multi: false
-		});
-		$("#flo-file").pekeUpload({
-			theme:'bootstrap',
-			data: 'flo',
-			btnText: '',
-			multi: false
-		});
-		$("#hammerhead-file").pekeUpload({
-			theme:'bootstrap',
-			data: 'hammerhead',
-			btnText: '',
-			multi: false
-		});
-		$("#m8-file").pekeUpload({
-			theme:'bootstrap',
-			data: 'm8',
-			btnText: '',
-			multi: false
-		});
-		$("#mako-file").pekeUpload({
-			theme:'bootstrap',
-			data: 'mako',
-			btnText: '',
-			multi: false
-		});
-	</script>
+	<script type="text/javascript" src="/js/zipUpload.js"></script>
 
 	<?php
 		if(isset($dateErr)) {
