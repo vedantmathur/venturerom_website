@@ -247,6 +247,7 @@
 							echo "		<input id='" . $device . "-file' type='file' name='file' />";
 							echo "	</div>";
 							echo "	<div class='panel-body'>";
+							echo "<div class='list-group'>";
 							// Open a known directory, and proceed to read its contents
 							foreach (glob("$devicedir/*.zip") as $file) {
 								$filename = basename($file);
@@ -260,7 +261,6 @@
 
 								$filesum = md5_file($file);
 
-								echo "<div class='list-group'>";
 								echo "	<div class='list-group-item'>";
 								echo "		<div class='row-action-primary'>";
 								echo "			<i class='icon-material-folder'></i>";
@@ -271,11 +271,10 @@
 								echo "			<p class='list-group-item-text'><a href='" . $url . "'>" . $url . "</a><br />" . $filesum . "</p>";
 								echo "			<a href='/index.php?action=delete&device=" . $device . "&file=" . $filename . "' class='btn btn-xs btn-danger btn-flat icon-material-close btn-delete'></a>";
 								echo "		</div>";
-								echo "</div>";
+								echo "	</div>";
 								echo "<div class='list-group-separator'></div>";
-								echo "</div>";
-
 							}
+							echo "</div>";
 							echo "</div>";
 							echo "</div>";
 						}
