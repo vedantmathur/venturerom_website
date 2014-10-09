@@ -263,7 +263,12 @@
 							foreach (glob("$devicedir/*.zip") as $file) {
 								$filename = basename($file);
 
-								$fileversion = preg_replace('#\D#', '', $filename);
+								if ($device == "m8") {
+									$fileversion = preg_replace('/m8/', '', $filename);
+									$fileversion = preg_replace('#\D#', '', $fileversion);
+								} else {
+									$fileversion = preg_replace('#\D#', '', $filename);
+								}
 
 								$filesize = formatSizeUnits(filesize($file));
 
