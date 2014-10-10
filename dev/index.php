@@ -26,7 +26,6 @@
 			$dateErr = "You must supply a valid date.";
 		} else {
 			$mydate = test_input($_POST['date']);
-			$mydate = preg_replace('#\D#', '', $mydate);
 		}
 	}
 	if (isset($_POST["notice"])) {

@@ -16,7 +16,7 @@ if (file_exists($noticefile)) {
 		$i++;
 	}
 	header('Content-type: application/json');
-	echo("{\"notices\":\"" . $numnotices . "\",\"data\":" . json_encode($json_Array) . "}");
+	echo("{\"notices\":\"" . $numnotices . "\",\"data\":" . json_encode($json_Array, JSON_UNESCAPED_SLASHES) . "}");
 } else {
 	echo json_encode('null');
 }
