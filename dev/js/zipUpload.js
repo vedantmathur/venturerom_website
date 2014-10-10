@@ -19,6 +19,13 @@
 			btnText: '',
 			multi: false
 		});
+		$("#i9100-file").pekeUpload({
+			theme:'bootstrap',
+			data: 'i9100',
+			allowedExtensions: 'zip',
+			btnText: '',
+			multi: false
+		});
 		$("#m8-file").pekeUpload({
 			theme:'bootstrap',
 			data: 'm8',

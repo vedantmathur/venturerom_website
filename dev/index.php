@@ -247,7 +247,7 @@
 							return $bytes;
 						}
 
-						$deviceArray = array('bacon', 'flo', 'hammerhead', 'm8', 'mako');
+						$deviceArray = array('bacon', 'flo', 'hammerhead', 'i9100', 'm8', 'mako');
 						foreach ($deviceArray as &$device) {
 							$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 							$webRoot = "http://get.venturerom.com/" . $device;
