@@ -247,7 +247,7 @@
 							return $bytes;
 						}
 
-						$deviceArray = array('bacon', 'flo', 'grouper', 'hammerhead', 'i9100', 'm8', 'maguro', 'mako', 'manta', 'toro');
+						$deviceArray = array('bacon', 'flo', 'grouper', 'hammerhead', 'i9100', 'm8', 'maguro', 'mako', 'manta', 'toro' );
 						foreach ($deviceArray as &$device) {
 							$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 							$webRoot = "http://get.venturerom.com/" . $device;
@@ -264,6 +264,9 @@
 
 								if ($device == "m8") {
 									$fileversion = preg_replace('/m8/', '', $filename);
+									$fileversion = preg_replace('#\D#', '', $fileversion);
+								} elseif ($device == "i9100") { 
+									$fileversion = preg_replace('/i9100/', '', $filename);
 									$fileversion = preg_replace('#\D#', '', $fileversion);
 								} else {
 									$fileversion = preg_replace('#\D#', '', $filename);

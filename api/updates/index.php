@@ -26,6 +26,9 @@ $device = $_REQUEST['device'];
 		if ($device == "m8") {
 			$filesubversion = preg_replace('/m8/', '', $filename);
 			$fileversion = preg_replace('#\D#', '', $filesubversion);
+		} elseif ($device == "i9100") { 
+			$fileversion = preg_replace('/i9100/', '', $filename);
+			$fileversion = preg_replace('#\D#', '', $fileversion);
 		} else {
 			$fileversion = preg_replace('#\D#', '', $filename);
 		}
