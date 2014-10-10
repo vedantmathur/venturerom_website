@@ -61,7 +61,7 @@
 			btnText: '',
 			multi: false
 		});
-		$("#manto-file").pekeUpload({
+		$("#manta-file").pekeUpload({
 			theme:'bootstrap',
 			data: 'manto',
 			allowedExtensions: 'zip',
