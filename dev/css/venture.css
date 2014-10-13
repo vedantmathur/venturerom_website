@@ -50,6 +50,7 @@ html {
 	}
 }
 
+.navbar-left { font-size: 25px; }
 .container { width: 100%; margin: 0; padding: 0; }
 .main { margin: -20px 0px -15px 0px; padding: 0; height: 90%;}
 .main-nav { height: 100%; }
