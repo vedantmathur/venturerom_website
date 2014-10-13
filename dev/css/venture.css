@@ -52,7 +52,7 @@ html {
 
 .container { width: 100%; margin: 0; padding: 0; }
 .main { margin: -20px 0px -15px 0px; padding: 0; height: 90%;}
-.main-nav { border-right: 1px solid #ccc; height: 100%; }
+.main-nav { height: 100%; }
 #notices h1 { font-size: 60px; }
 .priority-low:not(.bt-link) { background-color: #0F9D58; color: #eee; }
 .priority-normal:not(.bt-link) { background-color: #4285F4; color: #eee; }
@@ -61,8 +61,6 @@ html {
 .notice-date { font-size: 17px; margin: 0; padding: 0; }
 .notice-text { width: 99%; font-size: 12px; overflow: hidden; padding: 0; }
 form { width: 80%; }
-#scnackbar { width: 70%; margin-right: auto; margin-right: auto; }
-#snackbar .inner { background-color: #111; opacity: 0.8; color: #eee; padding: 20px; width: 60%; margin-right: auto; margin-left: auto; }
 .notice { width: 70%; margin-right: 0px; margin-left: 0px; }
 .panel-files { margin-top: 15px; width: 80%; }
 .alert { color: #111; }

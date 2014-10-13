@@ -73,6 +73,7 @@
 	<link href="/css/bootstrap-material-design/css-compiled/material-wfont.css" rel="stylesheet" type="text/css">
 	<link href="/css/venture.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="/css/bootstrapValidator.min.css"/>
+	<link rel="stylesheet" href="/css/bootstrap.vertical-tabs.min.css">
 
 	<!-- Custom Fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -143,12 +144,12 @@
 
 	<section class="main">
 		<div class="container">
-			<ul class="nav nav-tabs nav-stacked col-sm-2 main-nav">
+			<ul class="nav nav-tabs tabs-left col-sm-1 sideways main-nav">
 				<li class="active"><a href="#notices" data-toggle="tab">Notices</a></li>
 				<li><a href="#builds" data-toggle="tab">Builds</a></li>
 				<li class="disabled"><a>Disabled</a></li>
 			</ul>
-			<section class="content col-sm-offset-3">
+			<section class="content col-sm-offset-2">
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade active in text-left" id="notices">
 						<h1>Notices</h1>
