@@ -45,7 +45,7 @@
       obj = $(this);
       //HTML code depends of theme
       if (options.theme == "bootstrap"){
-      var html = '<a href="javascript:void(0)" class="btn btn-primary btn-flat btn-upload"> <span class="icon-material-cloud-upload icon-white"></span> '+options.btnText+'</a><div class="pekecontainer"></div>';
+      var html = '<a href="javascript:void(0)" class="btn btn-default btn-flat btn-upload"> <span class="icon-material-cloud-upload icon-white"></span> '+options.btnText+'</a><div class="pekecontainer"></div>';
       }
       if (options.theme == "custom"){
         var html = '<a href="javascript:void(0)" class="btn-pekeupload">'+options.btnText+'</a><div class="pekecontainer"></div>';
@@ -106,7 +106,7 @@
                   options.onFileError(file,data);
                   obj.next('a').next('div').find('.file:first').remove();
                   if((options.theme == "bootstrap")&&(options.showErrorAlerts==true)){
-                    obj.next('a').next('div').prepend('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button> '+data+'</div>');
+                    obj.next('a').next('div').prepend('<div class="alert alert-primary"><button type="button" class="close" data-dismiss="alert">&times;</button> '+data+'</div>');
                     bootstrapclosenotification();
                   }
                   if((options.theme == "custom")&&(options.showErrorAlerts==true)){

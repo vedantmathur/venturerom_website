@@ -63,7 +63,7 @@
 		});
 		$("#manta-file").pekeUpload({
 			theme:'bootstrap',
-			data: 'manto',
+			data: 'manta',
 			allowedExtensions: 'zip',
 			btnText: '',
 			multi: false

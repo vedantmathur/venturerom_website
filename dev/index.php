@@ -6,7 +6,7 @@
 			$notice_priority_rm = $_GET['index'];
 			$notice_date_rm = $notice_priority_rm + 1;
 			$notice_notice_rm = $notice_priority_rm + 2;
-			$f = '/srv/http/venturerom.com/api.venturerom.com/notices/notice';
+			$f = '/srv/http/venture-git/api/notices/notice';
 			$arr = file($f);
 			unset($arr[$notice_priority_rm]);
 			unset($arr[$notice_date_rm]);
@@ -41,7 +41,7 @@
 		return $data;
 	}
 	if (isset($mydate, $mynotice, $mypriority)) {
-		$myfile = "/srv/http/venturerom.com/api.venturerom.com/notices/notice";
+		$myfile = "/srv/http/venture-git/api/notices/notice";
 		$txt = file_get_contents($myfile);
 		if (empty($txt)) {
 			$txt = "priority : " . $mypriority . "\ndate : " . $mydate . "\nnotice : " . $mynotice . "\n";
@@ -153,7 +153,7 @@
 					<div class="tab-pane fade active in text-left" id="notices">
 						<h1>Notices</h1>
 						<?php
-							$noticefile = '/srv/http/venturerom.com/api.venturerom.com/notices/notice';
+							$noticefile = '/srv/http/venture-git/api/notices/notice';
 							if (file_exists($noticefile)) {
 								echo "<h2>Current Notice(s):</h2>";
 								$lines = file($noticefile);
@@ -251,7 +251,7 @@
 						foreach ($deviceArray as &$device) {
 							$devicedir = "/srv/http/venturerom.com/get.venturerom.com/" . $device;
 							$webRoot = "http://get.venturerom.com/" . $device;
-							echo "<div class='panel panel-primary panel-files'>";
+							echo "<div class='panel panel-default panel-files'>";
 							echo "	<div class='panel-heading'>";
 							echo "		<h3 class='panel-title'>" . $device . "</h3>";
 							echo "		<input id='" . $device . "-file' type='file' name='file' />";

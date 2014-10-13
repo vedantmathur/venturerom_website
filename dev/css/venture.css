@@ -66,7 +66,8 @@ form { width: 80%; }
 .notice { width: 70%; margin-right: 0px; margin-left: 0px; }
 .panel-files { margin-top: 15px; width: 80%; }
 .alert { color: #111; }
-.btn-upload { float: right; padding: 2px; position: relative; bottom: 30px; }
+.alert-primary { color: #eee; }
+.btn-upload { float: right; padding: 2px; position: relative; bottom: 30px; color: #4285F4; }
 .pekecontainer { margin: 0px; position: relative; top: 5px; }
 .btn-delete { position: absolute; right: 15px; top: 30px; padding: 5px; }
 
