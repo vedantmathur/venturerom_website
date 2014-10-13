@@ -1,6 +1,0 @@
-[submodule "dev/css/bootstrap-material-design"]
-	path = dev/css/bootstrap-material-design
-	url = https://github.com/FezVrasta/bootstrap-material-design.git
-[submodule "www/css/bootstrap-material-design"]
-	path = www/css/bootstrap-material-design
-	url = https://github.com/FezVrasta/bootstrap-material-design.git
