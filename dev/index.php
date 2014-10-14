@@ -150,7 +150,9 @@
 	<section class="main">
 		<div class="container">
 			<ul class="nav nav-tabs tabs-left col-sm-1 sideways main-nav">
-				<li class="active"><a href="#notices" data-toggle="tab">Notices</a></li>
+				<li><a href="#notices" data-toggle="tab">Notices</a></li>
+				<li class="disabled"><a href="">Changelog</a></li>
+				<li><div class="separator"></div></li>
 				<li><a href="#builds" data-toggle="tab">Builds</a></li>
 				<li class="disabled"><a>Disabled</a></li>
 			</ul>
