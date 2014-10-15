@@ -82,14 +82,14 @@
 	<!-- Intro Header -->
 	<header class="intro">
 		<div class="intro-body">
-			<!-- <div class="container">
+			<div class="container">
 				<div class="row">
-					<div class="col-sm-1" style="margin-left: -100px;">
+					<!-- <div class="col-sm-1" style="margin-left: -100px;">
 						<div class="logo-container">
 							<img src="/img/logo.png" class="main-logo" />
 						</div>
 					</div> -->
-					<div class="col-md-10 col-md-offset-4" style="margin-top: 50px; display: inline;">
+					<div class="col-lg-14" style="margin-top: 50px; margin-bottom: 10px; display: inline;">
 						<h1 class="brand-heading">Venture ROM</h1>
 						<p class="brand-subheading"><i>Venture Into the Great Beyond</i></p>
 						<p class="intro-text">VentureROM is a Paranoid Android fork that is made to be as customizable as possible without sacrificing any performance or battery life.</p>
@@ -115,7 +115,7 @@
 							</div></a>
 						</div>
 						<div class="col-sm-3">
-							<a href="#features-list" class="page-scroll"><button class="btn btn-primary btn-fab btn-raised bubble-large icon-material-auto-fix page-scroll"></button>
+							<a href="#features" class="page-scroll"><button class="btn btn-primary btn-fab btn-raised bubble-large icon-material-auto-fix page-scroll"></button>
 							<div class="btn-sm btn-raised btn-primary">
 								<h2>Venture</h2>
 								<p>Our unique app that ships with VentureROM containing all of our tweaks.</p>
@@ -156,28 +156,32 @@
 	<section id="screenshots" class="content-section text-center">
 		<div class="screenshots-section">
 			<div class="container">
-				<div class="col-sm-15">
-					<div class="slick-caption">
-						<div class=".slick-caption-text"><button class="btn btn-flat btn-primary btn-lg">Home</button></div>
-						<div class=".slick-caption-text"><button class="btn btn-flat btn-primary btn-lg">Settings</button></div>
-						<div class=".slick-caption-text"><button class="btn btn-flat btn-primary btn-lg">Notifications</button></div>
-						<div class=".slick-caption-text"><button class="btn btn-flat btn-primary btn-lg">Dialer</button></div>
+				<div class="col-sm-14">
+					<div id="carousel" class="carousel slide center" data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner center">
+							<div class="item active enter">
+								<img src="/img/screen-home.png" class="slide" alt="Home">
+							</div>
+							<div class="item">
+								<img src="/img/screen-settings.png" class="slide" alt="...">
+							</div>
+							<div class="item">
+								<img src="/img/screen-notifications.png" class="slide" alt="...">
+							</div>
+							<div class="item">
+								<img src="/img/screen-dialer.png" class="slide" alt="...">
+							</div>
+						</div>
+
+						<!-- Controls -->
+						<a class="btn-carousel-left btn btn-fab btn-raised btn-primary" href="#carousel" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+						<a class="btn-carousel-right btn btn-fab btn-raised btn-primary" href="#carousel" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
 					</div>
-					<div class="slick-slides">
-							<div id="slider-item"><img src="/img/screen-home.png" srcset="/img/screen-home-medium.png 800w" /></div>
-							<div id="slider-item"><img src="/img/screen-settings.png" srcset="/img/screen-home-medium.png 800w" /></div>
-							<div id="slider-item"><img src="/img/screen-notifications.png" srcset="/img/screen-home-medium.png 800w" /></div>
-							<div id="slider-item"><img src="/img/screen-dialer.png" srcset="/img/screen-home-medium.png 800w" /></div>
-					</div>
-					<!-- <div id='ninja-slider'>
-						<ul>
-						<li><div data-image="/img/screen-home.png" class="slider-item"></div></li>
-						<li><div data-image="/img/screen-notifications.png" class="slider-item"></div></li>
-						<li><div data-image="/img/screen-settings.png" class="slider-item"></div></li>
-						<li><div data-image="/img/screen-dialer.png" class="slider-item"></div></li>
-						</ul>
-					</div> -->
-				<div class="slick-arrows"></div>
 				</div>
 			</div>
 		</div>
@@ -197,8 +201,9 @@
 		</div>
 	</section>
 
+	<div id="features"></div>
 	<!-- Features Section -->
-	<section id="features" class="content-section text-center">
+	<section class="content-section text-center">
 		<div class="features-section">
 			<div class="container">
 				<div class="col-md-1" id="features-preview" style="position: relative; left: -200px;">
@@ -303,50 +308,6 @@
 
 	<!-- Plugin JavaScript -->
 	<script src="js/jquery.easing.min.js"></script>
-
-	<!-- Slick Slider -->
-	<script type="text/javascript" src="js/slick/slick.js"></script>
-
-	<script>
-		$('.slick-caption').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			arrows: false,
-			asNavFor: '.slick-slides'
-		});
-		$('.slick-slides').slick({
-			centerMode: true,
-			centerPadding: '10px',
-			slidesToShow: 2,
-			arrows: true,
-			// lazyLoad: 'ondemand',
-			prevArrow: '<a type="button" data-role="none" class="btn btn-primary btn-fab btn-raised slick-prev icon-material-arrow-back"></a>',
-			nextArrow: '<a type="button" data-role="none" class="btn btn-primary btn-fab btn-raised slick-next icon-material-arrow-forward"></a>',
-			asNavFor: '.slick-caption',
-			responsive: [
-				{
-					breakpoint: 768,
-					settings: {
-						// lazyLoad: 'ondemand',
-						arrows: false,
-						centerMode: true,
-						centerPadding: '40px',
-						slidesToShow: 1,
-						adaptiveHeight: true
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						arrows: false,
-						centerMode: true,
-						centerPadding: '40px',
-						slidesToShow: 1
-					}
-				}
-			]
-		});
-	</script>
 </body>
 
 </html>
