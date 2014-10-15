@@ -237,7 +237,10 @@ html {
 .about-section p {
 	margin: 35px 0px;
 }
-
+#screenshots {
+	position: relative;
+	bottom: 175px;
+}
 .screenshots-section {
 	width: 100%;
 	padding: 50px 0;
@@ -265,6 +268,10 @@ html {
 .download-section p {
 	margin: 35px 0px;
 }
+#features {
+	position: relative;
+	top: 150px;
+}
 .features-section {
 	width: 100%;
 	padding: 300px 0;
@@ -275,7 +282,6 @@ html {
 	background-size: cover;
 	-o-background-size: cover;
 }
-
 @media(max-width:767px) {
 	.content-section {
 		padding-top: 250px;
@@ -422,7 +428,6 @@ body {
 		right: -40px;
 	}
 }
-
 #features-preview img {
 	position: relative;
 }
