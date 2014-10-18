@@ -5,6 +5,13 @@
 			btnText: '',
 			multi: false
 		});
+                $("#d2lte-file").pekeUpload({
+                        theme:'bootstrap',
+                        data: 'd2lte',
+                        allowedExtensions: 'zip',
+                        btnText: '',
+                        multi: false
+                })
 		$("#flo-file").pekeUpload({
 			theme:'bootstrap',
 			data: 'flo',
