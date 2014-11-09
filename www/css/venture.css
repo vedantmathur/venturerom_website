@@ -11,6 +11,11 @@ body {
 	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif; 
 }
 
+body {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 html {
 	width: 100%;
 	height: 100%;

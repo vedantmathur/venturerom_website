@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST['email'])) {
-		$venture_email = 'brett@venturerom.com';
+		$venture_email = 'hello@venturerom.com';
 		if (isset($_POST['subject']) || isset($_POST['description']) || isset($_POST['type'])) {
 			if ($_POST['type'] == 'bug') {
 				$venture_subject = 'Bugs: ' . $_POST['subject'];
@@ -16,7 +16,7 @@
 				$headers = 'From: ' . $_POST['email'] . "\r\n" .
 				'Reply-To: ' . $_POST['email'] . "\r\n" .
 				'X-Mailer: PHP/' . phpversion();
-				@mail($venture_email, $_POST['subject'], $_POST['description'], $headers);
+				mail($venture_email, $venture_subject, $_POST['description'], $headers);
 				$mysnackbar = "Your message has been sent. We'll be in contact with you as soon as possible! Thank you for contacting us.";
 			}
 		} else {
@@ -96,6 +96,9 @@
 						<a class="page-scroll" href="http://www.venturerom.com/about.html">About Us</a>
 					</li>
 					<li>
+						<a class="page-scroll" href="http://www.venturerom.com/contact.php">Contact</a>
+					</li>
+					<li>
 						<a class="page-scroll" href="https://plus.google.com/u/0/communities/113182664923280225609">Community</a>
 					</li>
 					<!-- <li>
@@ -143,7 +146,7 @@
 			<div class="row">
 				<h1>Contact Us</h1>
 				<p style="font-size: 20px;">If in any way you need to contact us, you can use the form below to do so. Make sure to pick the radio option for what you're contacting us for, be it feature requests, bug reports, or just general feedback. We look forward to hearing from you!</p>
-				<form id="new-notice" class="form-vertical text-left well well-lg contact-form" method="post" action="/contact.php">
+				<form id="new-notice" class="form-vertical text-left well well-lg contact-form" method="post" action="contact.php">
 					<fieldset>
 						<div class="form-group">
 							<label for="inputemail" class="col-lg-2 control-label">Email</label>
